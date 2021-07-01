@@ -2,12 +2,12 @@ version: '3'
 
 #env file is ./.env
 services:
-    compute-serivce:
+    user-serivce:
         restart: "unless-stopped"
-        container_name: "compute"
+        container_name: "users"
         user: "${UID}:${GID}" #from .env file
         build: 
-            context: '../services/compute/'
+            context: '../services/users/'
             dockerfile: 'Dockerfile'
             #command: 'python src/index.py'
             #command: 'sleep 60000'
@@ -17,9 +17,12 @@ services:
             # connect to data folder
             - "data-m:/app/data"
               # enable hot reloading
-            - "../services/compute/app/:/app/"
+            - "../services/users/app/:/app/"
         ports:
             - '8080:80'
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: 'mlex_admin'
+            MONGO_INITDB_ROOT_PASSWORD: 'mlexchiprunhawk'
     mongo:
         restart: "unless-stopped"
         image: 'mongo'

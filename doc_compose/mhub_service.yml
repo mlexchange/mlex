@@ -19,7 +19,7 @@ services:
               # enable hot reloading
             - "../services/compute/app/:/app/"
         ports:
-            - '8080:80'
+            - '8000:8000'
     mongo:
         restart: "unless-stopped"
         image: 'mongo'
