@@ -130,3 +130,11 @@ dmypy.json
 
 # log files
 *.log
+
+
+# mongo
+*.wt
+*.bson
+*.lock
+*.turtle
+*WiredTiger

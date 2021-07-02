@@ -1,18 +1,21 @@
 from fastapi import FastAPI, Depends
 from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
-from typing import List
+from typing import List, Optional
 from pydantic import BaseModel, validator, Field
 from enum import Enum
+
 
 node_db = {'1': 'vaughan'}
 app = FastAPI()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl='token')
 
+
 class User(BaseModel):
     username: str
     email: Optional[str] = None
-    full_name: Optional[str] = None
-    disabled: Optional[str] = None
+    fullname: Optional[str] = None
+    passwd_hash: str
+
 class JobType(str, Enum):
     "users can enter either cpu or gpu (using the Enum class denotes a choice)"
     cpu = 'cpu'
