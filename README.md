@@ -32,8 +32,14 @@ You can then access the compute-service at localhost:8080 (type this into your b
 
 MLExchange is designed to work as an ecosystem, with applications calling services, which themselves access databases, repositories and external services.
 
-One way of understanding MLExchange is by tracing the flow of an ML model through its ecosystem. An ML reseacher creates a new model, and the model is *ingested* into MLExchange. The model is then indexed in the *store/search/rank* step. The model is then *deployed* either directly into a beamline scientists workflow as a container or jupyter notebook, or within an MLExchange application.
-![simple_mlexchange_schematic](https://user-images.githubusercontent.com/990372/124203769-4d2ff100-da92-11eb-891a-6a9c6becc51c.png)
+One way of understanding MLExchange is by tracing the flow of an ML model through its ecosystem. ![simple_mlexchange_schematic](https://user-images.githubusercontent.com/990372/124203769-4d2ff100-da92-11eb-891a-6a9c6becc51c.png)
+An ML reseacher creates a new model, and the model is *ingested* into MLExchange. The model is then indexed in the *store/search/rank* step. The model is then *deployed* either directly into a beamline scientists workflow as a container or jupyter notebook, or within an MLExchange application.
+
+These steps, ingest, store/search/rank, and deploy are broken out into two major abstraction layers, an application layer, which handles the client-facing code to create a user-interface to interact with the ML models, and a service layer, which handles the heavy computational tasks through API calls. Though not complete, the following figure illustrates how these abstraction layers interact: each application has an associated *workflow*. To complete the workflow, the
+application accesses various services through API calls, which are also illustrated.
+![MLExchange Services V1(1)](https://user-images.githubusercontent.com/990372/124203604-f32f2b80-da91-11eb-82f4-2198389f9318.png)
+
+
 ```
 .
 ├── apps
@@ -70,7 +76,4 @@ One way of understanding MLExchange is by tracing the flow of an ML model throug
     ├── tag
     └── users
 ```
-These steps, ingest, store/search/rank, and deploy are broken out into two major abstraction layers, an application layer, which handles the client-facing code to create a user-interface to interact with the ML models, and a service layer, which handles the heavy computational tasks through API calls.
-![MLExchange Services V1(1)](https://user-images.githubusercontent.com/990372/124203604-f32f2b80-da91-11eb-82f4-2198389f9318.png)
-
 
