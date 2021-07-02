@@ -39,6 +39,8 @@ These steps, ingest, store/search/rank, and deploy are broken out into two major
 application accesses various services through API calls, which are also illustrated.
 ![MLExchange Services V1(1)](https://user-images.githubusercontent.com/990372/124203604-f32f2b80-da91-11eb-82f4-2198389f9318.png)
 
+These abstraction layers are broken out into their own seperate folders within this repo. The outline of this repo is illustrated below.
+
 
 ```
 .
