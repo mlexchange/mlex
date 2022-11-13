@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorials &mdash; MLExchange v1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Applications" href="applications.html" />
+    <link rel="prev" title="Getting started" href="start.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MLExchange
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MLExchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorials</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#user-portal">User portal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#content-registry">Content registry</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#model-preparation">Model preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#model-registration">Model registration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#search-interface">Search interface</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#text-search">Text Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#image-search">Image Search</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#job-manager">Job manager</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="applications.html">Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cite.html">How to cite us?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Recent publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Our users</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MLExchange</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorials</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/tutorials.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tutorials">
+<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline"></a></h1>
+<section id="user-portal">
+<h2>User portal<a class="headerlink" href="#user-portal" title="Permalink to this headline"></a></h2>
+<p>User could browse available APPs, launch the selected APPs, go to and terminate the running APPs from here.
+More desciptions will be added soon.</p>
+</section>
+<section id="content-registry">
+<h2>Content registry<a class="headerlink" href="#content-registry" title="Permalink to this headline"></a></h2>
+<p>If you have a new model or workflow to use within the MLExchange services (e.g., image segmentation),
+you can add it through the model registry following the steps below.</p>
+<section id="model-preparation">
+<h3>Model preparation<a class="headerlink" href="#model-preparation" title="Permalink to this headline"></a></h3>
+<p>The first step to submit a new model in MLExchange is to dockerize your
+script. To simplify this process, you can use the following templates:</p>
+<p>Insert the maintainer’s name in line 2 in <code class="docutils literal notranslate"><span class="pre">docker/Dockerfile</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">FROM</span> <span class="n">python</span><span class="p">:</span><span class="mf">3.9</span>
+<span class="n">MAINTAINER</span> <span class="n">YOUR_NAME</span>
+
+<span class="n">COPY</span> <span class="n">docker</span><span class="o">/</span><span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
+
+<span class="n">RUN</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span> <span class="o">&amp;&amp;</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> \
+    <span class="n">build</span><span class="o">-</span><span class="n">essential</span> \
+    <span class="n">wget</span> \
+    <span class="n">python3</span><span class="o">-</span><span class="n">pip</span>\
+    <span class="n">ffmpeg</span>\
+    <span class="n">libsm6</span>\
+    <span class="n">libxext6</span> 
+
+<span class="n">RUN</span> <span class="n">pip3</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">pip</span> <span class="o">&amp;&amp;</span>\
+    <span class="n">pip3</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> 
+
+<span class="n">WORKDIR</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">work</span>
+<span class="n">ENV</span> <span class="n">HOME</span> <span class="o">/</span><span class="n">app</span><span class="o">/</span><span class="n">work</span>
+<span class="n">ENV</span> <span class="n">PYTHONUNBUFFERED</span><span class="o">=</span><span class="mi">1</span>
+
+<span class="n">COPY</span> <span class="n">src</span> <span class="n">src</span>
+</pre></div>
+</div>
+<p>List the Python packages you utilized in your source code with their corresponding
+versions in <code class="docutils literal notranslate"><span class="pre">docker/requirements.txt</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># LIST OF REQUIREMENTS</span>
+<span class="n">pydantic</span><span class="o">==</span><span class="mf">1.8.2</span>
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">src/model_name.py</span></code> to place your algorithm. You can rename this
+file according to your function/command, e.g. train.py.
+While modifying this template, please make sure to identify 3 main sections of your
+code: input directory(ies), output directory(ies), and parameters.
+The template indicates how to declare this information and the order in which they should be declared.
+If you have more than one input directory, you should list these directories consecutively.
+The same applies for the output directories.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="c1"># import ...</span>
+<span class="c1"># from model_validation import Parameters</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">()</span>
+    <span class="c1"># parser.add_argument(&#39;input_dir&#39;, help=&#39;path to input directory&#39;)</span>
+    <span class="c1"># parser.add_argument(&#39;output_dir&#39;, help=&#39;path to output directory&#39;)</span>
+    <span class="c1"># parser.add_argument(&#39;parameters&#39;, help = &#39;dictionary of parameters&#39;)</span>
+    <span class="c1"># ...</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="c1"># input_dir = args.input_dir</span>
+    <span class="c1"># output_dir = args.output_dir</span>
+    <span class="c1"># parameters = args.parameters</span>
+    <span class="c1"># ...</span>
+
+    <span class="c1"># VALIDATION STEP</span>
+    <span class="c1"># if args.parameters is not None:</span>
+    <span class="c1">#     parameters = Parameters(**json.loads(parameters))  # class you defined in model_validation.py</span>
+        
+    <span class="c1"># YOUR ALGORITHM</span>
+    
+
+</pre></div>
+</div>
+<p>Note: If you have more than one function/command, create another script with the same template,
+and save it with a different name, e.g. <code class="docutils literal notranslate"><span class="pre">test.py</span></code>.
+Use <code class="docutils literal notranslate"><span class="pre">src/model_validation.py</span></code> to define the parameter classes (if you have any) that are used in your
+source files. For validation purposes, MLExchange uses
+<a class="reference external" href="https://pydantic-docs.helpmanual.io">Pydantic</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span><span class="p">,</span> <span class="n">Field</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Define you input parameters following the schema:</span>
+
+<span class="sd">class Parameters(BaseModel):</span>
+<span class="sd">    parameter: int = Field(description=&#39;this is a parameter&#39;)</span>
+<span class="sd">    optional_parameter: str = Field(description=&#39;this is the an optional parameter&#39;)</span>
+<span class="sd">    ...</span>
+
+<span class="sd">For more data type options, please refer to: https://pydantic-docs.helpmanual.io/usage/types/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>Insert your project name in line 4 in Makefile (optional).
+You can add example commands in Makefile.
+Once all changes have been completed, open a terminal console and type
+“build_docker”.
+You have successfully dockerized your model!</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>TAG 			:= latest	
+USER 			:= mlexchange
+# Insert your project name
+PROJECT			:= ##your_project_name##
+
+IMG_WEB_SVC    		:= ${USER}/${PROJECT}:${TAG}
+IMG_WEB_SVC_JYP    	:= ${USER}/${PROJECT_JYP}:${TAG}
+ID_USER			:= ${shell id -u}
+ID_GROUP			:= ${shell id -g}
+
+.PHONY:
+
+test:
+	echo ${IMG_WEB_SVC}
+	echo ${TAG}
+	echo ${PROJECT}
+	echo ${PROJECT}:${TAG}
+	echo ${ID_USER}
+
+build_docker: 
+	docker build -t ${IMG_WEB_SVC} -f ./docker/Dockerfile .
+	
+
+run_docker:
+	docker run --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 --memory-swap -1 -it -v ${PWD}:/app/work/ -v ${PWD}/../data:/app/data ${IMG_WEB_SVC}
+
+
+## OPTIONAL: create examples for your commands/functions
+
+
+push_docker:
+	docker push ${IMG_WEB_SVC}
+clean: 
+	find -name &quot;*~&quot; -delete
+	-rm .python_history
+	-rm -rf .config
+	-rm -rf .cache
+</pre></div>
+</div>
+<p>For further assistance, please contact <a class="reference external" href="mailto:tanchavez&#37;&#52;&#48;lbl&#46;gov">tanchavez<span>&#64;</span>lbl<span>&#46;</span>gov</a> or
+<a class="reference external" href="mailto:zzhao2&#37;&#52;&#48;lbl&#46;gov">zzhao2<span>&#64;</span>lbl<span>&#46;</span>gov</a>.</p>
+</section>
+<section id="model-registration">
+<h3>Model registration<a class="headerlink" href="#model-registration" title="Permalink to this headline"></a></h3>
+<p>You can register a new model at <a class="reference external" href="https://mlsandbox.als.lbl.gov/model-registry">MLExchange Content
+Registry</a>.</p>
+<div class="line-block">
+<div class="line"><strong>Register your model</strong></div>
+</div>
+<div class="line-block">
+<div class="line">Create a JSON file with the description of your model (fill out the
+online form to generate your model document), and upload your model
+document to the model registry after validating the document.</div>
+</div>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/upload_model.png"><img alt="Upload model panel in the MLExchange model registry" src="../_images/upload_model.png" style="width: 538.16px; height: 269.08px;" /></a>
+<figcaption>
+<p><span class="caption-text">“Upload Model” panel in the MLExchange Model Registry</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<div class="line-block">
+<div class="line"><strong>Parameter definition</strong></div>
+</div>
+<div class="line-block">
+<div class="line">The parameter class you previously defined for your source files
+corresponds to the GUI’s components that MLExchange automatically
+generates within its applications. You can define these parameters in
+the JSON file, or you can use the model registry form to add each GUI
+component.</div>
+</div>
+<p>Currently, the model registry supports the following 8 types of components:</p>
+<ul class="simple">
+<li><p>3 types of input box: int, float, and string</p></li>
+<li><p>Dropdown</p></li>
+<li><p>Slider</p></li>
+<li><p>RadioItem</p></li>
+<li><p>BooleanSwitch</p></li>
+<li><p>Graph</p></li>
+</ul>
+<p>They look like the follows:</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../_images/gui_components.png"><img alt="gui components" src="../_images/gui_components.png" style="width: 319.92px; height: 689.4399999999999px;" /></a>
+<figcaption>
+<p><span class="caption-text">8 types of automatic-generated GUI components (currently) supported by MLExchange</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="search-interface">
+<h2>Search interface<a class="headerlink" href="#search-interface" title="Permalink to this headline"></a></h2>
+<p>To search for available applications / models within the platform, navigate to:
+<a class="reference external" href="https://search.mlsandbox.als.lbl.gov">https://search.mlsandbox.als.lbl.gov</a></p>
+<p>Two kinds of search have been provided within the MLExchange search interface:</p>
+<section id="text-search">
+<h3>Text Search<a class="headerlink" href="#text-search" title="Permalink to this headline"></a></h3>
+<p>To run a text search, simply type in the keyword(s) you would like to
+look up for, the relevant information from content registry will be returned in the table below</p>
+</section>
+<section id="image-search">
+<h3>Image Search<a class="headerlink" href="#image-search" title="Permalink to this headline"></a></h3>
+<p>The image search is powered by a content-based image retrieval
+pipeline (pyCBIR) developed by Daniela Ushizima group - Camera (LBNL).</p>
+<p>To run:
+1. Prepare your query image(s), it could be either one folder with all (unlabeled) or one folder per image class (labeled).
+2. If you are searching for more than one image, compress them into a single file before uploading.
+3. Drag and drop your file into the loading box. If you don’t see the loading box, click “Toggle File Manager”.
+4. Scroll to the bottom of the file table and click on the folder you just uploaded. Hit “Import” to view your query images. If there are unwanted images from the previous run, delete them.
+5. Select the database you want to search from. Currently 3 fully-labeled sample databases are available for testing: Cells, Fibers and GISAXS. Ingesting additional labeled datasets from other applications will be available soon.
+6. Select the neural network for feature extraction. 3 pre-trained models using imagenet weight are available for testing. More options to choose from other pipelines will be available in the future.
+7. Select the searching method. We have implemented Faiss library (developed by Facebook AI) for efficient similarity search, and it’s recommended especially for large datasets. If you prefer traditional tree algorithms (KDTree, BallTree), these two are also available.
+8. Select the number of similar images you want to retrieve and click “Search”. You will see the submitted job within the list of jobs table to the bottom.
+9. Select the job to track logs, the search result will be displayed once ready. The first column is your query image while each row corresponds to similar images regarding your input image.</p>
+</section>
+</section>
+<section id="job-manager">
+<h2>Job manager<a class="headerlink" href="#job-manager" title="Permalink to this headline"></a></h2>
+<p>The job manager supervises the allocation of computing resources in MLExchange.
+MLExchange hosts status can be accessed and managed at <a class="reference external" href="https://job.mlsandbox.als.lbl.gov">https://job.mlsandbox.als.lbl.gov</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="start.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="applications.html" class="btn btn-neutral float-right" title="Applications" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, MLExchange.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

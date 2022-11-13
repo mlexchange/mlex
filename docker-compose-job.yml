@@ -1,0 +1,67 @@
+version: "3"
+
+services:
+
+################## job manager ###################
+  mongo:
+    image: mongo:4.4
+    restart: always
+    container_name: "mongodb"
+    working_dir: "/database/"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+    volumes:
+      - "./database/:/data/db"
+
+  job-service:
+    image: mlexchange1/computing_api_job-service:1.0
+    restart: 'unless-stopped'
+    container_name: 'job-service'
+#     build:
+#       context: 'job_manager'
+#       dockerfile: 'docker/Dockerfile'
+#     command: 'python api/main.py'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+    depends_on:
+      - 'mongo'
+    ports:
+      - '8080:8080'
+
+  worker-launcher:
+    image: mlexchange1/computing_api_worker-launcher:1.0
+    restart: 'unless-stopped'
+    container_name: 'worker-launcher'
+#     build:
+#       context: 'ml_worker'
+#       dockerfile: 'docker/Dockerfile'
+#     command: sh -c '
+#       make build_docker &&
+#       sleep 20 &&
+#       python3 src/worker_launcher.py'
+#     volumes:
+#       - "/var/run/docker.sock:/var/run/docker.sock"
+#       - "./ml_worker:/app"
+#     environment:
+#       NUM_PROCESSORS: '${NUM_PROCESSORS}'
+#       NETWORK: '${COMPOSE_PROJECT_NAME}_default'
+#       HOST: '${HOST}'
+    depends_on:
+      - 'job-service'
+
+  front-end:
+    image: mlexchange1/computing_api_front-end:1.0
+    restart: "unless-stopped"
+    container_name: "comp-frontend"
+#     build:
+#       context: "front_end"
+#       dockerfile: "docker/Dockerfile"
+#     command: "python frontend.py"
+    ports:
+      - "8050:8050"
+    depends_on:
+      - 'job-service'
+
+

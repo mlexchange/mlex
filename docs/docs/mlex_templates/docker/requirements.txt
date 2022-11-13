@@ -1,0 +1,2 @@
+# LIST OF REQUIREMENTS
+pydantic==1.8.2

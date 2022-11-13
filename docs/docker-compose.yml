@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  dash-docs:
+    restart: "unless-stopped"
+    container_name: "dash-docs"
+    build:
+      context: "dash/"
+      dockerfile: "docker/Dockerfile"
+    command: "python src/dash_docs.py"
+    volumes:
+      - ./dash/src:/app/dash/src
+    ports:
+      - "8058:8058"
+    networks:
+      - computing_api_default
+      
+networks:
+  computing_api_default:
+    external: true
