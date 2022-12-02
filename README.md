@@ -8,6 +8,13 @@ This is a monorepo designed to hold all of mlexchange in one place. The abstract
 
 Additionally, the doc_compose folder contains the different docker compose files neccesary to run either the entirety of MLExchange, or any subset of its functionality.
 
+## How to use?
+1. Install Docker or Docker Desktop 
+2. cd into mlex folder, then run `docker-compose up`
+
+**Note:** if you are using M1 chip, comment out model3 in the docker-compose.yml file.
+
+
 ## Up and Running
 
 The commands to run MLExchange have been written into the Makefile for your convience. The Makefile will both build the docker-compose environments, and launch them. Choose the particular service, application, or any combination of MLexchange that you wish to run and the makefile should handle the complexity for you.
