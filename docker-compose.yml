@@ -87,6 +87,6 @@ services:
     image: mlexchange1/random-forest-dc:1.0
   model2:
     image: mlexchange1/k-means-dc:1.0
-#   model3:
-#     image: mlexchange1/msdnetwork-notebook
+  model3:
+    image: mlexchange1/msdnetwork-notebook
 
