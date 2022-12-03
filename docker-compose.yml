@@ -71,7 +71,7 @@ services:
 
 #################### segmentation demo #####################
   front-end:
-    image: mlexchange1/seg-demo_front-end:1.0
+    image: mlexchange1/seg-demo_front-end:1.1
     restart: "unless-stopped"
     container_name: "fronty"
     command: "python src/napp.py"
