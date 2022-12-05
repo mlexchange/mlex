@@ -80,7 +80,7 @@ services:
     volumes:
       - ./dash-seg/data:/app/work/data
     ports:
-      - "8052:8050"
+      - "8052:8052"
 
 #################### models ################################
   model1:
