@@ -1,0 +1,1 @@
+You can place some data in this folder to test the algorithms locally

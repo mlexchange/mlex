@@ -1,0 +1,74 @@
+version: '3'
+
+#env file is ./.env
+services:
+    user-serivce:
+        restart: "unless-stopped"
+        container_name: "users"
+        user: "${UID}:${GID}" #from .env file
+        build: 
+            context: '../services/users/'
+            dockerfile: 'Dockerfile'
+            #command: 'python src/index.py'
+            #command: 'sleep 60000'
+        depends_on:
+            - "mongo"
+        volumes: #relative to where docker-compose is run, NOT context
+            # connect to data folder
+            - "data-m:/app/data"
+              # enable hot reloading
+            - "../services/users/app/:/app/"
+        ports:
+            - '8080:80'
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: 'mlex_admin'
+            MONGO_INITDB_ROOT_PASSWORD: 'mlexchiprunhawk'
+    mongo:
+        restart: "unless-stopped"
+        image: 'mongo'
+        ports:
+            - "27017:27017"
+        volumes:
+            - "data-m:/data"
+            - "mongo_data:/data/db"
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: 'mlex_admin'
+            MONGO_INITDB_ROOT_PASSWORD: 'mlexchiprunhawk'
+volumes: #create named dir and link it to the data folder, so all services can use
+    data-m:
+        driver: local
+        driver_opts:
+            type: "none"
+            device: "${PWD}/data/local"
+            o: "bind"
+        
+    mongo_data:
+        driver: local
+        driver_opts:
+            type: "none"
+            device: "${PWD}/data/db"
+            o: "bind"
+ 
+
+        
+              #        #    ml:
+        #        build: './ml_backend/docker/'
+        #        ulimits:
+        #            memlock: -1
+        #            stack: 67108864
+        #        volumes:
+        #            - '${PWD}/ml_backend:/work/'
+        #        ports:
+        #            - '8006:8000'
+        #        shm_size: '1g'
+        #        runtime: nvidia
+        #        environment:
+        #            NVIDIA_VISIBLE_DEVICES: all
+        #            NVIDIA_DRIVER_CAPABILITIES: all
+        #        deploy:
+        #            resources:
+        #                reservations:
+        #                    devices:
+        #                        - capabilities:
+        #                            - gpu
+        #

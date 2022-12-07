@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Applications &mdash; MLExchange v1.0.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="How to cite us?" href="cite.html" />
+    <link rel="prev" title="Tutorials" href="tutorials.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MLExchange
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction to MLExchange</a></li>
+<li class="toctree-l1"><a class="reference internal" href="start.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#image-segmentation">Image segmentation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#currently-available-ml-models">Currently available ML models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#supervised-vs-unsupervised-learning">Supervised vs. unsupervised learning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-a-segmentation-model-in-the-mlexchange-platform">Run a segmentation model in the MLExchange platform</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#image-labeling">Image labeling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#orientation-pattern-detection">Orientation pattern detection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#peak-detection">Peak detection</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cite.html">How to cite us?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="publications.html">Recent publications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="users.html">Our users</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MLExchange</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Applications</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/docs/applications.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Permalink to this headline"></a></h1>
+<section id="image-segmentation">
+<h2>Image segmentation<a class="headerlink" href="#image-segmentation" title="Permalink to this headline"></a></h2>
+<p>This application performs image segmentation in TIF images (supports either
+a single image or volume).</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../_images/seg_demo.png"><img alt="map to buried treasure" src="../_images/seg_demo.png" style="width: 648.0px; height: 421.74px;" /></a>
+<figcaption>
+<p><span class="caption-text">MLExchange Image segmentation webpage</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<section id="currently-available-ml-models">
+<h3>Currently available ML models<a class="headerlink" href="#currently-available-ml-models" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Random Forest (supervised learning)
+[<a class="reference external" href="https://github.com/plotly/dash-sample-apps/blob/d96997bd269deb4ff98b810d32694cc48a9cb93e/apps/dash-image-segmentation/trainable_segmentation.py#L64">adapted from Dash example code</a>]</p></li>
+<li><p>pyMSDtorch (supervised learning)
+[<a class="reference external" href="http://pymsdtorch.readthedocs.io">documentation</a>]</p></li>
+<li><p>K-Means (unsupervised learning) [ALS Howard Yanxon &amp; Nicholas Schwartz]</p></li>
+</ul>
+</section>
+<section id="supervised-vs-unsupervised-learning">
+<h3>Supervised vs. unsupervised learning<a class="headerlink" href="#supervised-vs-unsupervised-learning" title="Permalink to this headline"></a></h3>
+<p>A supervised learning algorithm utilizes labeled datasets to train
+their models, while an unsupervised learning approach does not need
+this information to perform training.</p>
+</section>
+<section id="run-a-segmentation-model-in-the-mlexchange-platform">
+<h3>Run a segmentation model in the MLExchange platform<a class="headerlink" href="#run-a-segmentation-model-in-the-mlexchange-platform" title="Permalink to this headline"></a></h3>
+<p><strong>Choose a dataset</strong> at the top left section of the app.</p>
+<p><strong>Choose an ML model:</strong>
+when choosing a supervised learning algorithm,
+you need to provide annotations (labels). These annotations represent
+the ground truth information that the algorithm utilizes to train the
+model.
+When choosing an unsupervised algorithm, you do not need to
+provide annotations.</p>
+<p>The segmentation app allows 2 different training options for unsupervised algorithms:
+you can mark some few images to be used for training.
+If no marks are provided, the algorithm utilizes the
+entire stack of images for training. It is important to clarify that
+these marks do not correspond to annotations/labels/ground truth.</p>
+<p><strong>Training:</strong>
+select the values of the model parameters and click TRAIN.
+You can check the status of the training process in the list of jobs at the bottom left
+section of the app.
+To check the logs of the process, select the
+corresponding job in the list and the logs will appear at the bottom
+right section of the app.</p>
+<p><strong>Testing:</strong>
+once the model is trained (marked as
+completed), you can proceed to test this model. To do this, select the
+dataset you want to test, and click TEST.
+You can check the status of
+the testing process in the list of jobs at the bottom left section of
+the app.
+Once the image stack is completely segmented, you can check the
+Show Segmentation box on the right to visualize the testing results in
+the graph.</p>
+</section>
+</section>
+<section id="image-labeling">
+<h2>Image labeling<a class="headerlink" href="#image-labeling" title="Permalink to this headline"></a></h2>
+<p>Add desctiption soon.</p>
+</section>
+<section id="orientation-pattern-detection">
+<h2>Orientation pattern detection<a class="headerlink" href="#orientation-pattern-detection" title="Permalink to this headline"></a></h2>
+<p>Add desctiption soon.</p>
+</section>
+<section id="peak-detection">
+<h2>Peak detection<a class="headerlink" href="#peak-detection" title="Permalink to this headline"></a></h2>
+<p>Add desctiption soon.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tutorials.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cite.html" class="btn btn-neutral float-right" title="How to cite us?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, MLExchange.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
