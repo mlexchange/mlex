@@ -20,20 +20,19 @@ Please note: the latest version only works on AMD chip.
 
 
 ## How to cite us?
-MLExchange paper can be found on ArXiv: [https://doi.org/10.48550/arXiv.2208.09751](https://doi.org/10.48550/arXiv.2208.09751)
+MLExchange paper: [https://ieeexplore.ieee.org/document/10024637](https://ieeexplore.ieee.org/document/10024637)
 
 **BibTex:**  
 
-    @misc{https://doi.org/10.48550/arxiv.2208.09751,
-        doi = {10.48550/ARXIV.2208.09751},
-        
-        url = {https://arxiv.org/abs/2208.09751},
-        
-        author = {Zhao, Zhuowen and Chavez, Tanny and Holman, Elizabeth A. and Hao, Guanhua and Green, Adam and Krishnan, Harinarayan and McReynolds, Dylan and Pandolfi, Ronald and Roberts, Eric J. and Zwart, Petrus H. and Yanxon, Howard and Schwarz, Nicholas and Sankaranarayanan, Subramanian and Kalinin, Sergei V. and Mehta, Apurva and Campbell, Stuart and Hexemer, Alexander},
-        
-        keywords = {Machine Learning (cs.LG), Artificial Intelligence (cs.AI), FOS: Computer and information sciences, FOS: Computer and information sciences},
-        
-        title = {MLExchange: A web-based platform enabling exchangeable machine learning workflows for scientific studies},
+    @INPROCEEDINGS{10024637,
+      author={Zhao, Zhuowen and Chavez, Tanny and Holman, Elizabeth A. and Hao, Guanhua and Green, Adam and Krishnan, Harinarayan and McReynolds, Dylan and Pandolfi, Ronald J. and Roberts, Eric J. and Zwart, Petrus H. and Yanxon, Howard and Schwarz, Nicholas and Sankaranarayanan, Subramanian and Kalinin, Sergei V. and Mehta, Apurva and Campbell, Stuart I. and Hexemer, Alexander},
+      booktitle={2022 4th Annual Workshop on Extreme-scale Experiment-in-the-Loop Computing (XLOOP)}, 
+      title={MLExchange: A web-based platform enabling exchangeable machine learning workflows for scientific studies}, 
+      year={2022},
+      volume={},
+      number={},
+      pages={10-15},
+      doi={10.1109/XLOOP56614.2022.00007}}
 
 
 # Copyright
