@@ -2,13 +2,19 @@
 MLExchange is web-based software infrastructure that deploys machine learning models for beamline scientists.
 
 This is our 1st release. 
-It contains 2 MLExchange services, i.e., the job manager and content registry, and 1 frontend application, i.e., image segmentation, and 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets). 
+It contains 2 MLExchange services, i.e., the job manager and content registry.
+
+Within content registry webpage:  
+1. 	One can launch 2 frontend applications under APPs tab, i.e., image segmentation app (seg-demo) and colowheel. Seg-demo contains 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets).   
+2. 	One can launch two workflows under Workflows tab.
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
+Please note: the latest version only works on AMD chip.
+
 ## How to use?
 1. Install Docker or Docker Desktop 
-2. cd into mlex folder, then run `docker-compose up`
+2. cd into mlex folder, first run `docker-compose -f pull-images.yml pull`. Then run `docker-compose up`.
 
 **Note:** if you are using M1 chip, please comment out model3 in the docker-compose.yml file. Because an ARM64 compatible image for this model is not available at the moment.
 
