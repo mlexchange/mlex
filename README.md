@@ -21,7 +21,7 @@ Please note: the latest version only works on AMD chips.
 	MONGO_DB_PASSWORD=your_password       
 	ATLAS_USER=MLExchange_mongo_atlas_access_token        
 	``` 
-3. First run `docker-compose -f docker-images.yml pull`, then run `docker-compose up`
+3. First run `docker-compose -f docker-images.yml pull`, then run `docker-compose up`. To run containers in the detached mode, use `docker-compose up -d` instead.
 
 **Note:** if you are using M1 chip, please comment out model3 in the docker-compose.yml file. Because an ARM64 compatible image for this model is not available at the moment.
 
