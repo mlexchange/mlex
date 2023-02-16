@@ -10,11 +10,18 @@ Within content registry webpage:
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
-Please note: the latest version only works on AMD chip.
+Please note: the latest version only works on AMD chips.
 
 ## How to use?
 1. Install Docker or Docker Desktop 
-2. cd into mlex folder, first run `docker-compose -f pull-images.yml pull`. Then run `docker-compose up`.
+2. cd into mlex folder, create a `.env` file. Please contact us to get an MLExchange Mongo Atlas access token for general user. 
+
+	```
+	MONGO_DB_USERNAME=your_username     
+	MONGO_DB_PASSWORD=your_password       
+	ATLAS_USER=MLExchange_mongo_atlas_access_token        
+	``` 
+3. First run `docker-compose -f docker-images.yml pull`, then run `docker-compose up`
 
 **Note:** if you are using M1 chip, please comment out model3 in the docker-compose.yml file. Because an ARM64 compatible image for this model is not available at the moment.
 
