@@ -134,7 +134,7 @@ dmypy.json
 
 # mongo
 *.wt
-*.bson
+#*.bson
 *.lock
 *.turtle
 *WiredTiger
