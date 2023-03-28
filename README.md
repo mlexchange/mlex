@@ -10,20 +10,21 @@ Within content registry webpage:
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
-Please note: the latest version only works on AMD chips.
+The latest version can run with **Intel** and **Apple M1** chips.
+
 
 ## How to use?
 1. Install Docker or Docker Desktop 
-2. cd into mlex folder, create a `.env` file. Please contact us to get an MLExchange Mongo Atlas access token for general user. 
+2. cd into mlex/docker-compose folder, create a `.env` file. 
 
 	```
 	MONGO_DB_USERNAME=your_username     
-	MONGO_DB_PASSWORD=your_password       
-	ATLAS_USER=MLExchange_mongo_atlas_access_token        
+	MONGO_DB_PASSWORD=your_password               
 	``` 
-3. First run `docker-compose -f docker-images.yml pull`, then run `docker-compose up`. To run containers in the detached mode, use `docker-compose up -d` instead.
+3. Run `./install.sh` to intall the software. Go to `http://localhost:8051` to use MLExchange content registry user interface (GUI). It allows users to browse, launch, open, and terminate the available apps (color wheel and seg-demo). Users can register and use new models/apps through this interface. See tutorials in [MLExchange documentation](https://docs.mlexchange.als.lbl.gov) for further instructions.
+4. To uninstall, please first terminate all the running jobs in content registry interface; then run `./uninstall.sh`.
 
-**Note:** if you are using M1 chip, please comment out model3 in the docker-compose.yml file. Because an ARM64 compatible image for this model is not available at the moment.
+**Note:** if you are using M1 chip, please comment out model3 in the docker-model-images.yml file in docker-compose folder. Because an ARM64-compatible image for this model is not available at the moment.
 
 
 ## How to cite us?
