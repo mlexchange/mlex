@@ -1,7 +1,7 @@
 #!/bin/bash
 
 docker-compose -f docker-compose/docker-compute-api.yml up -d
-sleep 30
+sleep 10
 
 . docker-compose/.env
 docker cp data/dump mongodb:/dump
