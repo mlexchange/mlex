@@ -6,7 +6,7 @@ It contains 2 MLExchange services, i.e., the job manager and content registry.
 
 Within content registry webpage:  
 1. 	One can launch 2 frontend applications under APPs tab, i.e., image segmentation app (seg-demo) and colowheel. Seg-demo contains 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets).   
-2. 	One can launch two workflows under Workflows tab.
+2. 	One can launch two applications (colorwheel and seg-demo) under the APP tab.
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
