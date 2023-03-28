@@ -138,3 +138,6 @@ dmypy.json
 *.lock
 *.turtle
 *WiredTiger
+
+#dir
+.DS_Store
