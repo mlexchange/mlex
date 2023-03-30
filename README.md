@@ -4,27 +4,30 @@ MLExchange is web-based software infrastructure that deploys machine learning mo
 This is our 1st release. 
 It contains 2 MLExchange services, i.e., the job manager and content registry.
 
-Within content registry webpage:  
-1. 	One can launch 2 frontend applications under APPs tab, i.e., image segmentation app (seg-demo) and colowheel. Seg-demo contains 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets).   
-2. 	One can launch two applications (colorwheel and seg-demo) under the APP tab.
+Within the content registry webpage: user can launch 2 frontend applications under the APP tab, i.e., image segmentation (seg-demo) and colowheel app. Seg-demo contains 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets).   
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
-The latest version can run with **Intel** and **Apple M1** chips.
+The latest version can run with **Intel** and **Apple Sillicon** chips.
 
 
 ## How to use?
-1. Install Docker or Docker Desktop 
+1. Install Docker or Docker Desktop.
 2. cd into mlex/docker-compose folder, create a `.env` file. 
 
 	```
 	MONGO_DB_USERNAME=your_username     
 	MONGO_DB_PASSWORD=your_password               
 	``` 
-3. Run `./install.sh` to intall the software. Go to `http://localhost:8051` to use MLExchange content registry user interface (GUI). It allows users to browse, launch, open, and terminate the available apps (color wheel and seg-demo). Users can register and use new models/apps through this interface. See tutorials in [MLExchange documentation](https://docs.mlexchange.als.lbl.gov) for further instructions.
-4. To uninstall, please first terminate all the running jobs in content registry interface; then run `./uninstall.sh`.
+3. Go back to the mlex folder and run `./install.sh` to intall the software. 
 
-**Note:** if you are using M1 chip, please comment out model3 in the docker-model-images.yml file in docker-compose folder. Because an ARM64-compatible image for this model is not available at the moment.
+	**Note:** if you had previously used a different username/password and there was a (legacy) database folder inside the mlex folder, please delete the database folder before the installation. It would cause MongoDB authentication issues. 
+ 
+	Go to `http://localhost:8051` to use MLExchange content registry user interface (GUI). It allows users to browse, launch, open, and terminate the available apps (colorwheel and seg-demo app). Users can register and use new models/apps through this interface. See tutorials in [MLExchange documentation](https://docs.mlexchange.als.lbl.gov) for further instructions.
+
+4. To uninstall, please first terminate all the running jobs in the content registry interface. Then, run `./uninstall.sh`.
+
+**Note:** if you are using Apple Silicon chip, please comment out model3 in the docker-model-images.yml file in docker-compose folder. Because an ARM64-compatible image for this model is not available at the moment.
 
 
 ## How to cite us?

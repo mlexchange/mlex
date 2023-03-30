@@ -21,7 +21,7 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
       MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
-      CONTAINER_WORKING_DIR: '${PWD}/../data'
+      CONTAINER_WORKING_DIR: '${PWD}/data'   
     ports:
       - "8051:8051"
     networks:
