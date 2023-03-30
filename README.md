@@ -13,13 +13,13 @@ The latest version can run with **Intel** and **Apple Sillicon** chips.
 
 ## How to use?
 1. Install [Docker](https://docs.docker.com/engine/install/) on your machine.
-2. Inside the `mlex/docker-compose` folder, create a an environment file named `.env`. 
+2. Inside the `mlex/docker-compose` folder, create an environment file named `.env`. 
 
 	```
 	MONGO_DB_USERNAME=your_username     
 	MONGO_DB_PASSWORD=your_password               
 	``` 
-3. Go back to the `mlex` folder and run `./install.sh` to intall the software. 
+3. Go back to the `mlex` folder and run `./install.sh` in the terminal to intall the software. 
 
 	**Note:** if you had previously used a different username/password and there was a (legacy) database folder inside the mlex folder, please delete the database folder before the installation. It would cause MongoDB authentication issues. 
  
