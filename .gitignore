@@ -134,7 +134,11 @@ dmypy.json
 
 # mongo
 *.wt
-*.bson
+#*.bson
 *.lock
 *.turtle
 *WiredTiger
+
+#dir
+.DS_Store
+database

@@ -11,7 +11,7 @@ services:
       MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
       MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
     volumes:
-      - "./database/:/data/db"
+      - "../database/:/data/db"
 
   job-service:
     image: mlexchange1/computing_api_job-service:1.1
@@ -30,12 +30,13 @@ services:
     image: mlexchange1/computing_api_worker-launcher:2.1
     restart: 'unless-stopped'
     container_name: 'worker-launcher'
-    command: 
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../data/dump:/data/mongo/dump" 
+    command: >
       sh -c "
       sleep 20 &&
       python3 src/worker_launcher.py"
-    volumes:
-      - "/var/run/docker.sock:/var/run/docker.sock"
     environment:
       NUM_PROCESSORS: 2
       NETWORK: 'computing_api_default'
@@ -57,25 +58,6 @@ services:
     depends_on:
       - 'job-service'
 
-#################### content registry ######################
-  content-api:
-    image: mlexchange1/content-api:1.1
-    restart: "unless-stopped"
-    container_name: "content-api"
-    environment:
-      ATLAS_ACCESS: '${ATLAS_USER}'
-    ports:
-      - "8000:8000"
-
-  content-registry:
-    image: mlexchange1/content-registry:1.3
-    restart: "unless-stopped"
-    container_name: "content-registry"
-    environment:
-      ATLAS_ACCESS: '${ATLAS_USER}'
-      CONTAINER_WORKING_DIR: '${PWD}/data'
-    ports:
-      - "8051:8051"
 
 networks: 
   default:
