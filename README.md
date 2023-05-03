@@ -40,11 +40,7 @@ MLExchange paper: [https://ieeexplore.ieee.org/document/10024637](https://ieeexp
       number={},
       pages={10-15},
       doi={10.1109/XLOOP56614.2022.00007}} 
-
-
-## Maintainer
-Name: [Zhuowen Zhao](https://github.com/zhuowenzhao), [Tanny Chavez](https://github.com/taxe10)  
-Correspondence: [zzhao2@lbl.gov](mailto:zzhao2@lbl.gov), [tanchavez@lbl.gov](mailto:tanchavez@lbl.gov) 
+ 
 
 # Copyright
 MLExchange Copyright (c) 2021, The Regents of the University of California, through Lawrence Berkeley National Laboratory (subject to receipt of any required approvals from the U.S. Dept. of Energy). All rights reserved.
