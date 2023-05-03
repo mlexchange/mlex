@@ -39,14 +39,7 @@ MLExchange paper: [https://ieeexplore.ieee.org/document/10024637](https://ieeexp
       volume={},
       number={},
       pages={10-15},
-      doi={10.1109/XLOOP56614.2022.00007}}
-
-
-
-## Major authors
-Name: [Zhuowen Zhao](https://github.com/zhuowenzhao), [Tanny Chavez](https://github.com/taxe10)  
-Correspondence: [zzhao2@lbl.gov](mailto:zzhao2@lbl.gov), [tanchavez@lbl.gov](mailto:tanchavez@lbl.gov)  
-Date: 11/13/2022  
+      doi={10.1109/XLOOP56614.2022.00007}} 
 
 
 # Copyright
