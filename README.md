@@ -10,7 +10,7 @@ Within content registry webpage:
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
-Please note: the latest version only works on AMD chips.
+**Please note:** the latest version only works with AMD chips.
 
 ## How to use?
 1. Install Docker or Docker Desktop 
@@ -43,7 +43,7 @@ MLExchange paper: [https://ieeexplore.ieee.org/document/10024637](https://ieeexp
 
 
 
-# Authors
+# Developers
 Author: [Zhuowen Zhao](https://github.com/zhuowenzhao), [Tanny Chavez](https://github.com/taxe10)  
 Corerspondence: [zzhao2@lbl.gov](mailto:zzhao2@lbl.gov), [tanchavez@lbl.gov](mailto:tanchavez@lbl.gov)  
 Date: 11/13/2022  
