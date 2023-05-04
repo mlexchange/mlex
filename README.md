@@ -6,7 +6,7 @@ It contains 2 MLExchange services, i.e., the job manager and content registry.
 
 Within content registry webpage:  
 1. 	One can launch 2 frontend applications under APPs tab, i.e., image segmentation app (seg-demo) and colowheel. Seg-demo contains 3 machine learning models to be used for segmentation, i.e., k-means, random forest, and Mixed-Scale Dense Convolutional Networks (MSDnets).   
-2. 	One can launch two workflows under Workflows tab.
+2. 	One can launch two workflows under the Workflows tab.
 
 All these container images will be directly pulled from [the MLExchange DockerHub](https://hub.docker.com/u/mlexchange1). 
 
@@ -14,12 +14,11 @@ Please note: the latest version only works on AMD chips.
 
 ## How to use?
 1. Install Docker or Docker Desktop 
-2. cd into mlex folder, create a `.env` file. Please contact us to get an MLExchange Mongo Atlas access token for general user. 
+2. cd into mlex folder, create a `.env` file.
 
 	```
 	MONGO_DB_USERNAME=your_username     
-	MONGO_DB_PASSWORD=your_password       
-	ATLAS_USER=MLExchange_mongo_atlas_access_token        
+	MONGO_DB_PASSWORD=your_password               
 	``` 
 3. First run `docker-compose -f docker-images.yml pull`, then run `docker-compose up`. To run containers in the detached mode, use `docker-compose up -d` instead.
 
