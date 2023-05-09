@@ -14,7 +14,7 @@ Please note: the latest version only works on AMD chips.
 
 ## How to use?
 1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) (server) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) 
-2. cd into mlex folder, create a `.env` file.
+2. cd into mlex/docker-compose folder, create a `.env` file.
 
 	```
 	MONGO_DB_USERNAME=your_username     
