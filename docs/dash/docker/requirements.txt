@@ -1,4 +1,4 @@
 dash==1.21.0
 dash_html_components==1.1.4
-werkzeug==2.0
-
+#werkzeug==2.0
+werkzeug>=2.2.3
