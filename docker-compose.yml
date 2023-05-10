@@ -1,0 +1,92 @@
+version: "3"
+
+services:
+#################### job manager #######################
+  mongo:
+    image: mongo:4.4
+    restart: always
+    container_name: "mongodb"
+    working_dir: "/database/"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+    volumes:
+      - "${PWD}/database/:/data/db"
+      - ./mongo_import.sh:/docker-entrypoint-initdb.d/mongo_import.sh
+      - "${PWD}/data/dump:/dump"
+
+  job-service:
+    image: mlexchange1/computing_api_job-service:1.1
+    restart: 'unless-stopped'
+    container_name: 'job-service'
+    command: 'python api/main.py'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+    depends_on:
+      - 'mongo'
+    ports:
+      - '8080:8080'
+
+  worker-launcher:
+    image: mlexchange1/computing_api_worker-launcher:2.1
+    restart: 'unless-stopped'
+    container_name: 'worker-launcher'
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "../data/dump:/data/mongo/dump" 
+    command: >
+      sh -c "
+      sleep 20 &&
+      python3 src/worker_launcher.py"
+    environment:
+      NUM_PROCESSORS: 2
+      NETWORK: 'computing_api_default'
+      HOST: '{"nickname":"local", 
+              "hostname":"local.als.lbl.gov",
+              "frontend_constraints": {"num_processors":10, "num_gpus":0, "list_gpus":[], "num_nodes":2},
+              "backend_constraints":{"num_processors":10, "num_gpus":0, "list_gpus":[], "num_nodes":2}}'
+      WORKER_IMAGE: 'mlexchange1/dummy-worker:1.1'
+    depends_on:
+      - 'job-service'
+
+  front-end:
+    image: mlexchange1/computing_api_front-end:1.0
+    restart: "unless-stopped"
+    container_name: "comp-frontend"
+    command: "python frontend.py"
+    ports:
+      - "8050:8050"
+    depends_on:
+      - 'job-service'
+
+#################### content registry ######################
+  content-api:
+    image: mlexchange1/content-api:1.2
+    restart: "unless-stopped"
+    container_name: "content-api"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+    ports:
+      - "8000:8000"
+    depends_on:
+      - "mongo"
+
+
+  content-registry:
+    image: mlexchange1/content-registry:1.4
+    restart: "unless-stopped"
+    container_name: "content-registry"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: '${MONGO_DB_USERNAME}'
+      MONGO_INITDB_ROOT_PASSWORD: '${MONGO_DB_PASSWORD}'
+      CONTAINER_WORKING_DIR: '${PWD}/data'   
+    ports:
+      - "8051:8051"
+    depends_on:
+      - content-api
+
+# networks: 
+#   default:
+#     name: "computing_api_default"
