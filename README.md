@@ -14,22 +14,19 @@ Please note: the latest version only works on AMD chips.
 
 ## How to use?
 1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) (server) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) 
-2. cd into mlex/docker-compose folder, create a `.env` file.
+2. cd into mlex folder, create a `.env` file.
 
 	```
 	MONGO_DB_USERNAME=your_username     
 	MONGO_DB_PASSWORD=your_password               
  	``` 
-3. To install, run `./install.sh`. To uninstall, run `./uninstall.sh`.
-
-### Alternative installation method
-The docker compose gives more flexible installation:
-
 3. To install the **lightest** MLExchange platform, run `docker-compose up`. **Note**: use `docker-compose up -d` instead to run containers in the detached mode.
 
-4. (Optional) run `docker-compose -f docker-images.yml pull` to download the colorwheel app, segmentation app and models. 
+4. (Optional) run `docker-compose -f docker-model-images.yml pull` to download the colorwheel app, segmentation app and models. 
 
-**Note:** if you are using M1 chip, please comment out model3 in the docker-compose.yml file. Because an ARM64 compatible image for this model is not available at the moment.
+	**Note:** if you are using M1 chip, please comment out model3 in the docker-	compose.yml file. Because an ARM64 compatible image for this model is not 	available at the moment.
+
+5. To uninstall, run `docker-compose down`. 
 
 
 ## How to cite us?
