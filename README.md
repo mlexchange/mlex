@@ -20,13 +20,13 @@ Please note: the latest version only works on AMD chips.
 	MONGO_DB_USERNAME=your_username     
 	MONGO_DB_PASSWORD=your_password               
  	``` 
-3. To install the **lightest** MLExchange platform, run `docker-compose up`. **Note**: use `docker-compose up -d` instead to run containers in the detached mode.
+3. To install the **lightest** MLExchange platform, run `docker-compose up`. **Note**: use `docker compose up -d` instead to run containers in the detached mode.
 
-4. (Optional) run `docker-compose -f docker-model-images.yml pull` to download the colorwheel app, segmentation app and models. 
+4. (Optional) run `docker compose -f docker-model-images.yml pull` to download the colorwheel app, segmentation app and models. 
 
 	**Note:** if you are using M1 chip, please comment out model3 in the docker-	compose.yml file. Because an ARM64 compatible image for this model is not 	available at the moment.
 
-5. To uninstall, run `docker-compose down`. 
+5. To uninstall, run `docker compose down`. 
 
 
 ## How to cite us?
