@@ -87,6 +87,6 @@ services:
     depends_on:
       - content-api
 
-# networks: 
-#   default:
-#     name: "computing_api_default"
+networks: 
+  default:
+    name: "computing_api_default"
