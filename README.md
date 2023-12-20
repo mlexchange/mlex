@@ -13,7 +13,7 @@ All these container images will be directly pulled from [the MLExchange DockerHu
 Please note: the latest version only works on AMD chips.
 
 ## How to use?
-1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) (server) or [Docker Desktop](https://www.docker.com/products/docker-desktop/) 
+1. Install [Docker Engine](https://docs.docker.com/engine/install/ubuntu/) on a Linux server or [Docker Desktop](https://www.docker.com/products/docker-desktop/) on a MacOS or Windows machine. 
 2. cd into mlex folder, create a `.env` file (make sure there is no white space or special characters in the username or password).
 
 	```
